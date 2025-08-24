@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/generate', (req, res) => {
-  const auth = req.headers.authorization;
+  const auth = req.headers['authorization'] || req.headers['Authorization'];
   if (auth !== ADMIN_TOKEN) return res.status(403).json({ success: false, message: "Unauthorized" });
 
   const key = Math.random().toString(36).substring(2, 10).toUpperCase();
