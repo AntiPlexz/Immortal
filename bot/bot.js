@@ -1,12 +1,11 @@
-// Tiny web server to keep Render happy
+// Tiny server to satisfy Render port requirement
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 10000;
-
+const PORT = process.env.PORT || 10001;
 app.get('/', (req, res) => res.send('ImmortalBot is running'));
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
-// --- Discord bot code below ---
+// Discord bot code
 const { Client, GatewayIntentBits } = require('discord.js');
 const fetch = require('node-fetch');
 
